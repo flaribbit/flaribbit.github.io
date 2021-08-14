@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "vitepress dev blog",
+    "build": "vitepress build blog",
+    "serve": "vitepress serve blog"
+  },
+  "devDependencies": {
+    "vitepress": "^0.16.1"
+  }
+}
