@@ -5,6 +5,8 @@
     "serve": "vitepress serve blog"
   },
   "devDependencies": {
+    "globby": "11",
+    "gray-matter": "^4.0.3",
     "vitepress": "^0.16.1"
   }
 }
