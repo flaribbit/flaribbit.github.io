@@ -1,6 +1,7 @@
 import DefaultTheme from "vitepress/theme"
 import BlogList from "./BlogList.vue"
 import "./style.css"
+import "katex/dist/katex.min.css"
 
 export default {
   ...DefaultTheme,
