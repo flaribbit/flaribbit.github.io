@@ -10,7 +10,9 @@ module.exports = {
   customData: {
     pages: getPages(),
   },
-  themeConfig: {},
+  themeConfig: {
+    repo: "flaribbit/flaribbit.github.io",
+  },
   markdown: {
     lineNumbers: true,
     config: md => {
