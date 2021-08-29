@@ -11,19 +11,19 @@ title: TensorFlow 2.0 快速入门笔记
 
 ### 2. 创建虚拟环境（推荐）
 Python 虚拟环境用于将软件包安装与系统隔离开来。
-```
+```bash
 python -m venv .\venv
 .\venv\Scripts\activate
 python -m pip install --upgrade pip
 ```
 退出虚拟环境
-```
+```bash
 deactivate
 ```
 
 ### 3. 安装 TensorFlow pip 软件包
 在虚拟环境中执行
-```
+```bash
 pip install tensorflow
 ```
 
