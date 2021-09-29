@@ -1,5 +1,4 @@
 const { getPages } = require("./utils")
-const MathMLtags = ["math", "maction", "maligngroup", "malignmark", "menclose", "merror", "mfenced", "mfrac", "mi", "mlongdiv", "mmultiscripts", "mn", "mo", "mover", "mpadded", "mphantom", "mroot", "mrow", "ms", "mscarries", "mscarry", "mscarries", "msgroup", "mstack", "mlongdiv", "msline", "mstack", "mspace", "msqrt", "msrow", "mstack", "mstack", "mstyle", "msub", "msup", "msubsup", "mtable", "mtd", "mtext", "mtr", "munder", "munderover", "semantics", "annotation"];
 
 /**
  * @type {import('vitepress').UserConfig}
@@ -16,10 +15,14 @@ module.exports = {
   markdown: {
     lineNumbers: true,
     config: md => {
-      md.use(require("markdown-it-katex"));
+      md.use(require("@iktakahiro/markdown-it-katex"));
+      // from https://github.com/Maorey/Blog/blob/ac5ced6deb3bbec689c672ec425640a0fba598f3/docs/.vitepress/config.js#L51
+      const originalRender = md.render;
+      md.render = function () {
+        return originalRender
+          .apply(this, arguments)
+          .replace(/<span class="katex">/g, '<span v-pre class="katex">')
+      }
     }
-  },
-  vue: {
-    template: { compilerOptions: { isCustomElement: tag => MathMLtags.includes(tag) } }
   }
 }

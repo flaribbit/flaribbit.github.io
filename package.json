@@ -5,10 +5,10 @@
     "serve": "vitepress serve blog"
   },
   "devDependencies": {
+    "@iktakahiro/markdown-it-katex": "^4.0.1",
     "globby": "11",
     "gray-matter": "^4.0.3",
     "katex": "^0.13.13",
-    "markdown-it-katex": "^2.0.3",
     "vitepress": "^0.16.1"
   }
 }
