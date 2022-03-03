@@ -5,4 +5,4 @@ sidebar: false
 
 ![](./images/calc-demo.png)
 
-<CalcDemo/>
+<!-- <CalcDemo/> -->
