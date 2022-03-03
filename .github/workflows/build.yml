@@ -1,20 +1,28 @@
 name: Build
-on: [push]
+on: [push, pull_request]
 jobs:
-  build_vue:
+  Vitepress_build:
     runs-on: ubuntu-latest
-    name: Build
+    name: Vitepress build
     steps:
     - uses: actions/checkout@v2
-    - name: Build Vue
+    - name: Setup and build
       shell: bash
       run: |
         npm install
         npm run build
-        cd blog/.vitepress/dist
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
-        git init
+    - uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        path: www
+    - name: Update github page
+      shell: bash
+      run: |
+        cd www
+        rm -rf assets posts tags
+        cp -rf ../.vitepress/dist/* .
+        git config --global user.email "1149761294@qq.com"
+        git config --global user.name "flaribbit"
         git add -A
-        git commit -m 'Build'
-        git push -f https://flaribbit:${{ secrets.GITHUB_TOKEN }}@github.com/flaribbit/flaribbit.github.io master:gh-pages
+        git commit -m autobuild
+        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git gh-pages
