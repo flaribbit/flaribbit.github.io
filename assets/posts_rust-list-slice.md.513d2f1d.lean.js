@@ -1,1 +1,0 @@
-import{_ as n,c as s,o as a,e as p}from"./app.3b381bfb.js";const b='{"title":"rust \u6570\u7EC4\u5207\u7247","description":"","frontmatter":{"title":"rust \u6570\u7EC4\u5207\u7247"},"headers":[],"relativePath":"posts/rust-list-slice.md"}',t={},o=p("",12),e=[o];function c(l,u,i,k,r,m){return a(),s("div",null,e)}var f=n(t,[["render",c]]);export{b as __pageData,f as default};

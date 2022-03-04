@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r}from"./app.fd510a43.js";const m='{"title":"Home","description":"","frontmatter":{"home":true},"headers":[],"relativePath":"index.md"}',a={};function o(n,c,s,i,_,d){return r(),t("div")}var f=e(a,[["render",o]]);export{m as __pageData,f as default};
