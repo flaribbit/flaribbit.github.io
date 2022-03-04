@@ -1,6 +1,7 @@
 ---
 title: 计算器demo
-sidebar: false
+date: 2022-01-22
+tags: [废纸篓]
 ---
 
 ![](./images/calc-demo.png)

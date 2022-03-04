@@ -1,5 +1,7 @@
 ---
 title: rust 数组切片
+date: 2022-01-01
+tags: [rust, 笔记]
 ---
 
 关于 rust 中的 `From` 和 slice 切片，还有 `&[]` 和 `[].as_ref()` 的区别。

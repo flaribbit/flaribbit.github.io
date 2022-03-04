@@ -1,5 +1,7 @@
 ---
 title: TensorFlow 2.0 快速入门笔记
+date: 2021-08-16
+tags: [python, 深度学习, TensorFlow, 笔记]
 ---
 
 ## 使用 pip 安装 TensorFlow

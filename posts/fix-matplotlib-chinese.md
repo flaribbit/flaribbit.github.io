@@ -1,5 +1,7 @@
 ---
 title: 修复 matplotlib 中英混排问题
+date: 2021-09-19
+tags: [python, matplotlib]
 ---
 
 众所周知，matplotlib 默认字体不能显示中文，但论文通常要求 Times + 宋体，于是考虑这样写：

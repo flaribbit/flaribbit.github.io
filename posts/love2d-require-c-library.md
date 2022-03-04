@@ -1,5 +1,7 @@
 ---
 title: 关于love2d引擎require导入C/C++编写的.dll/.so扩展库问题
+date: 2021-08-29
+tags: [lua, love2d, C++, 安卓, 动态链接库, 笔记]
 ---
 
 ## 源码
