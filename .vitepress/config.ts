@@ -1,5 +1,6 @@
-import { ThemeConfig } from 'vitepress-theme-sakura'
+import { type ThemeConfig } from 'vitepress-theme-sakura'
 import { defineConfigWithTheme } from 'vitepress'
+import fixKatex from 'vitepress-theme-sakura/.vitepress/fix-katex'
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
   title: '梦飞翔的小站',
@@ -16,7 +17,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css' }],
   ],
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    config: md => { md.use(fixKatex) }
   },
   themeConfig: {
     name: 'flaribbit',
