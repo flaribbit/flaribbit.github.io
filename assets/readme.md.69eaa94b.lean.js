@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as o}from"./app.d30b9a6d.js";const u='{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"readme.md"}',r={},s=o("p",null,"\u8FD8\u6CA1\u6709\u5199",-1),c=[s];function n(_,d,i,p,l,m){return a(),t("div",null,c)}var h=e(r,[["render",n]]);export{u as __pageData,h as default};
