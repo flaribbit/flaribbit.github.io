@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>pyside2 快速入门 | 梦飞翔的小站</title>
+    <meta name="description" content="A VitePress site">
+    <link rel="stylesheet" href="/assets/style.8fc98893.css">
+    <link rel="modulepreload" href="/assets/app.ba090bce.js">
+    <link rel="modulepreload" href="/assets/posts_pyside2-quick-start.md.c6acf72c.lean.js">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC">
+  <script src="https://cdn.jsdelivr.net/npm/@waline/client@1.5.4/dist/Waline.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css">
+  <meta name="twitter:title" content="pyside2 快速入门 | 梦飞翔的小站">
+  <meta property="og:title" content="pyside2 快速入门 | 梦飞翔的小站">
+  </head>
+  <body>
+    <div id="app"><!--[--><header><span class="brand"></span><span class="container"><span class="nav"></span><span class="menu"><ul><!--[--><li><a href="/"><span><i class="fa fa-home"></i> 首页</span></a></li><li><a href="/tags/"><span><i class="fa fa-tag"></i> 标签</span></a></li><li><a href="/readme.html"><span><i class="fa fa-leaf"></i> 关于</span></a></li><!--]--></ul></span></span><span><span class="search"><i class="fa fa-search"></i></span></span></header><aside></aside><main><a href="#" class="totop" style="top: -900px" aria-label="to-top"></a><!--[--><div class="abanner" style="background-image: url(https://tva4.sinaimg.cn/large/0060lm7Tly1ftg6omnqa4j31hc0u010z.jpg)"><div class="titlebox"><h1 class="title">pyside2 快速入门</h1><div class="info">flaribbit · 更新于 Invalid Date · 0 次阅读</div></div></div><div class="article"><div style="position:relative;" class="content"><div><h2 id="安装" tabindex="-1">安装 <a class="header-anchor" href="#安装" aria-hidden="true">#</a></h2><div class="language-Bash line-numbers-mode"><pre><code>pip <span class="token function">install</span> pyside2
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>这里是基于 qt5 的 pyside2，不过对于 qt6 的 pyside6 也适用。</p><h2 id="绘制界面草图" tabindex="-1">绘制界面草图 <a class="header-anchor" href="#绘制界面草图" aria-hidden="true">#</a></h2><p>运行 <code>pyside2-designer</code>，打开界面设计工具</p><p><img src="/assets/pyside2-quick-start_1.21507bc5.png" alt=""></p><p>这里注意一些地方：</p><ul><li>两个按钮大小是固定的，<strong>先在容器外面摆</strong>，目测好大小然后<strong>右键固定尺寸</strong></li><li><strong>从小到大创建</strong>。固定大小的组件调整好之后，<strong>先看第三行</strong>，创建水平布局，把两个按钮塞进去，再放一个水平填充</li><li>创建竖直容器，把这三行内容塞进去，会发现他们的高度是平均分的，但我们只需要二行变高</li><li>修改竖直容器的拉伸属性，默认是 <code>0,0,0</code>，这些数值表示里面<strong>元素所占的比例</strong>，例如 <code>1,2,1</code> 就是 1:2:1 的意思。这里改成 <code>0,1,0</code> 就是想要的效果。</li><li>在窗口内容器外的任意位置右键，布局里面修改窗口的布局，例如竖直布局。</li><li>此时窗口内的组件就会自动适应窗口尺寸了。</li><li>另外记得给需要绑定信号的组件设置名字。</li></ul><p>运行 <code>pyside2-uic MainWindow.ui -o MainWindow.py</code></p><h2 id="编写主程序" tabindex="-1">编写主程序 <a class="header-anchor" href="#编写主程序" aria-hidden="true">#</a></h2><div class="language-Python line-numbers-mode"><pre><code><span class="token keyword">from</span> PySide2<span class="token punctuation">.</span>QtWidgets <span class="token keyword">import</span> QApplication<span class="token punctuation">,</span> QMainWindow
+<span class="token keyword">from</span> MainWindow <span class="token keyword">import</span> Ui_MainWindow
+<span class="token keyword">import</span> sys
+
+
+<span class="token keyword">class</span> <span class="token class-name">MainWindow</span><span class="token punctuation">(</span>QMainWindow<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ui <span class="token operator">=</span> Ui_MainWindow<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>setupUi<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        
+        <span class="token comment"># connect signals</span>
+        <span class="token comment"># self.ui.button_ok.clicked.connect(self.foo)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&#39;__main__&#39;</span><span class="token punctuation">:</span>
+    app <span class="token operator">=</span> QApplication<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>
+    mainWindow <span class="token operator">=</span> MainWindow<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    mainWindow<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span>app<span class="token punctuation">.</span>exec_<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="qt-联动-matplotlib" tabindex="-1">qt 联动 matplotlib <a class="header-anchor" href="#qt-联动-matplotlib" aria-hidden="true">#</a></h2><p>修改和对接方法：</p><ul><li>先把绘图程序改成用 <code>fig</code> 和 <code>ax</code> 的</li><li>在设计工具里面给要放图的地方预留位置，注意拉伸参数设置，这是为了最小化代码量</li><li>当然你要是能全用代码创建界面那当我上一条没说</li><li>创建画布并保存起来</li><li><code>fig = self.canvas.figure</code></li><li><code>ax = fig.subplots()</code></li><li>后面就是把绘图程序抄过来了</li><li>注意绘图不要占用太多时间，会卡主线程</li></ul><div class="language-Python line-numbers-mode"><pre><code><span class="token keyword">from</span> matplotlib<span class="token punctuation">.</span>figure <span class="token keyword">import</span> Figure
+<span class="token keyword">from</span> matplotlib<span class="token punctuation">.</span>backends<span class="token punctuation">.</span>backend_qt5agg <span class="token keyword">import</span> FigureCanvas
+
+<span class="token keyword">class</span> <span class="token class-name">MainWindow</span><span class="token punctuation">(</span>QMainWindow<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ui <span class="token operator">=</span> Ui_MainWindow<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>setupUi<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+
+        <span class="token comment"># setup</span>
+        self<span class="token punctuation">.</span>canvas <span class="token operator">=</span> FigureCanvas<span class="token punctuation">(</span>Figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>axes <span class="token operator">=</span> self<span class="token punctuation">.</span>canvas<span class="token punctuation">.</span>figure<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>container<span class="token punctuation">.</span>addWidget<span class="token punctuation">(</span>self<span class="token punctuation">.</span>canvas<span class="token punctuation">)</span>
+
+</code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div></div></div><div class="content nav"><span><a href="/posts/pattern-recognition-note.html"><i class="fa fa-angle-left"></i> 模式识别（本科生专业选修课）知识点整理</a></span><span><a href="/posts/rust-list-slice.html">rust 数组切片 <i class="fa fa-angle-right"></i></a></span></div><div id="waline"></div><div class="toc"><ol><!--[--><li class="h2 active"><a href="#安装">安装</a></li><li class="h2"><a href="#绘制界面草图">绘制界面草图</a></li><li class="h2"><a href="#编写主程序">编写主程序</a></li><li class="h2"><a href="#qt-联动-matplotlib">qt 联动 matplotlib</a></li><!--]--></ol></div></div><!--]--></main><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"d583a899\",\"posts_ascii-art.md\":\"4f95f38a\",\"posts_calc-demo.md\":\"057b0b87\",\"posts_d3-note.md\":\"b67725ba\",\"posts_fix-matplotlib-chinese.md\":\"dd591f6c\",\"posts_love2d-require-c-library.md\":\"24ad224a\",\"posts_pattern-recognition-note.md\":\"1d3ba666\",\"posts_pyside2-quick-start.md\":\"c6acf72c\",\"posts_rust-list-slice.md\":\"862e215e\",\"posts_tensorflow-note.md\":\"60b49ad3\",\"posts_write-code-from-answer.md\":\"d9701a48\",\"readme.md\":\"10a40dcd\",\"tags_index.md\":\"cb969765\"}")</script>
+    <script type="module" async src="/assets/app.ba090bce.js"></script>
+    
+  </body>
+</html>
