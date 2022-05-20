@@ -5,8 +5,8 @@
     "serve": "vitepress serve"
   },
   "devDependencies": {
-    "sass": "^1.49.9",
-    "vitepress": "^0.22.3",
-    "vitepress-theme-sakura": "^0.2.0"
+    "sass": "^1.52.0",
+    "vitepress": "^0.22.4",
+    "vitepress-theme-sakura": "^0.3.0"
   }
 }
