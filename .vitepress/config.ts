@@ -1,4 +1,4 @@
-import { type ThemeConfig } from 'vitepress-theme-sakura'
+import { type ThemeConfig } from 'vitepress-theme-sakura/.vitepress/config'
 import { defineConfigWithTheme } from 'vitepress'
 import fixKatex from 'vitepress-theme-sakura/.vitepress/fix-katex'
 export default defineConfigWithTheme<ThemeConfig>({

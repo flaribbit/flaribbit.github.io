@@ -1,6 +1,5 @@
 import { type EnhanceAppContext } from 'vitepress'
-import { Layout } from 'vitepress-theme-sakura'
-import 'vitepress-theme-sakura/dist/style.css'
+import Layout from 'vitepress-theme-sakura'
 
 export default {
   Layout,
