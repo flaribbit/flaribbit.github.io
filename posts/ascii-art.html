@@ -6,8 +6,8 @@
     <title>关于 ascii art 的思考 | 梦飞翔的小站</title>
     <meta name="description" content="A VitePress site">
     <link rel="stylesheet" href="/assets/style.0565aa79.css">
-    <link rel="modulepreload" href="/assets/app.72dc180f.js">
-    <link rel="modulepreload" href="/assets/posts_ascii-art.md.9daaaa62.lean.js">
+    <link rel="modulepreload" href="/assets/app.3f9f9bc9.js">
+    <link rel="modulepreload" href="/assets/posts_ascii-art.md.1a95c566.lean.js">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
@@ -71,8 +71,8 @@ res <span class="token operator">=</span> <span class="token string">&#39;&#39;<
       .    _-       
                     
 </code></pre><div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>至少能看出一点点，当然，实验之前我也没想到会这么惨。 然后想要找找看有没有其他人做过类似的工作，发现了一个逆天的：<a href="https://github.com/OsciiArt/DeepAA" target="_blank" rel="noopener noreferrer">https://github.com/OsciiArt/DeepAA</a><img src="https://github.com/OsciiArt/DeepAA/raw/master/sample%20images/images%20generated%20with%20CNN/21%20generated.png" alt=""></p><p>看来这种事情还是得炼丹。</p><p>对照他的操作方法思考了一下，主要原因可能有两个：</p><ol><li>我的误差计算方法过于粗暴，像素精确一致才能满足条件。如果竖线歪了一个像素，实际上问题不大，但是在我的算法里就认为误差非常大了。</li><li>ascii 能实现的线条太少了，比如无法画出 45° 的斜线，这一方面日本的 ascii art 可发挥的空间就大得多。</li></ol><p>如果我也用炼丹方法的话，最大的问题还是没有数据集。他可以直接从上述网站中获得数据集，但是纯 ascii 字符的，我好像还没有见过。</p><p>摸了</p></div></div><div class="content nav"><span><!----></span><span><a href="/posts/calc-demo.html">计算器demo <i class="fa fa-angle-right"></i></a></span></div><div id="waline"></div><div class="toc"><ol><!--[--><!--]--></ol></div></div><!--]--></main><!--]--></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"1c978440\",\"posts_ascii-art.md\":\"9daaaa62\",\"posts_calc-demo.md\":\"b0771553\",\"posts_call-cpp-from-python.md\":\"548270ab\",\"posts_cpp-promise.md\":\"e1f86ff3\",\"posts_d3-note.md\":\"4c132720\",\"posts_fix-matplotlib-chinese.md\":\"9e61db65\",\"posts_indexeddb.md\":\"f2fa3e29\",\"posts_love2d-require-c-library.md\":\"f63aab0c\",\"posts_pattern-recognition-note.md\":\"4cc1092d\",\"posts_pyside2-quick-start.md\":\"86ad4b0f\",\"posts_ripple-animation.md\":\"3eae93ca\",\"posts_rust-list-slice.md\":\"a0e3ab52\",\"posts_tensorflow-note.md\":\"27bcea08\",\"posts_tetris-field-compress.md\":\"ecbec0c7\",\"posts_write-code-from-answer.md\":\"1ea6fb59\",\"posts_xjb-utils.md\":\"abf6e042\",\"readme.md\":\"78654f57\",\"tags_index.md\":\"a7e5a23f\"}")</script>
-    <script type="module" async src="/assets/app.72dc180f.js"></script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"33941f6e\",\"posts_ascii-art.md\":\"1a95c566\",\"posts_calc-demo.md\":\"133a6ce1\",\"posts_call-cpp-from-python.md\":\"3ea81704\",\"posts_cpp-promise.md\":\"569a9f1d\",\"posts_d3-note.md\":\"47f93b83\",\"posts_fix-matplotlib-chinese.md\":\"a514191a\",\"posts_indexeddb.md\":\"3daec060\",\"posts_love2d-require-c-library.md\":\"9369d7c9\",\"posts_pattern-recognition-note.md\":\"3a49c40d\",\"posts_pyside2-quick-start.md\":\"c457ddfb\",\"posts_ripple-animation.md\":\"78a52710\",\"posts_rust-list-slice.md\":\"532edefc\",\"posts_tensorflow-note.md\":\"9278af91\",\"posts_tetris-field-compress.md\":\"89b50e7f\",\"posts_write-code-from-answer.md\":\"bee7fbcf\",\"posts_xjb-utils.md\":\"088f780b\",\"readme.md\":\"3750d4f0\",\"tags_index.md\":\"1474f0ff\"}")</script>
+    <script type="module" async src="/assets/app.3f9f9bc9.js"></script>
     
   </body>
 </html>
