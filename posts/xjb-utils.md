@@ -1,5 +1,5 @@
 ---
-title: 各种奇怪的程序
+title: 各种奇怪的程序备份
 date: 2022-04-13 22:00:00
 tags: [c++]
 ---
@@ -58,6 +58,33 @@ int main() {
     for (auto&& [i, word] : enumerate(words)) {
         cout << i << " " << word << endl;
     }
+    return 0;
+}
+```
+
+## c++ 自带的编码转换
+
+放在这里备份一下 当模板了
+
+```cpp
+#include <string>
+#include <codecvt>  // for std::codecvt_utf8
+#include <locale>   // for std::wstring_convert
+#include <cstdio>
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+int main() {
+#ifdef _WIN32
+    SetConsoleOutputCP(65001);
+#endif
+    std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> u32conv;
+    std::string u8string = "你好世界";
+    std::u32string unicode_string = u32conv.from_bytes(u8string);
+    std::string u8string2 = u32conv.to_bytes(unicode_string);
+    for (auto c : unicode_string) printf("%x ", c);
+    printf("%s\n", u8string2.c_str());
     return 0;
 }
 ```
