@@ -46,7 +46,7 @@ using namespace std;
 
 一行简简单单的命令：
 
-```sh
+```bash
 swig.exe -c++ -python lib.i
 ```
 
@@ -58,7 +58,7 @@ swig.exe -c++ -python lib.i
 
 这次头铁，使用了不熟悉的 msvc 编译器，命令如下：
 
-```sh
+```bash
 cl lib.cpp lib_wrap.cxx /LD /IC:\Tools\Python\include /link /LIBPATH:C:\Tools\Python\libs
 ```
 
