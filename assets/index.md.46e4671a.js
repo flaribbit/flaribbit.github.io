@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as r}from"./app.9cfd3ebb.js";const m='{"title":"Home","description":"","frontmatter":{"home":true},"headers":[],"relativePath":"index.md"}',a={};function o(n,c,s,i,_,d){return t(),r("div")}var f=e(a,[["render",o]]);export{m as __pageData,f as default};
