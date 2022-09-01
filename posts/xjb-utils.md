@@ -88,3 +88,41 @@ int main() {
     return 0;
 }
 ```
+
+## 缺啥补啥
+
+待补充
+
+```cpp
+#include <iostream>
+#include <vector>
+
+#include "co/unitest.h"
+#include "co/os.h"
+
+template <typename S, typename T>
+S& operator<<(S& output, std::vector<T>& vec) {
+    output << "[";
+    bool first = true;
+    for (T& x : vec) {
+        if (!first) output << ", ";
+        output << x;
+        first = false;
+    }
+    return output << "]";
+}
+
+DEF_test(fun) {
+    DEF_case(compare vector) {
+        std::vector<int> v1{6, 5, 4};
+        std::vector<int> v2{6, 5};
+        EXPECT_EQ(v1, v2);
+    }
+}
+
+int main(int argc, char* argv[]) {
+    flag::init(argc, argv);
+    unitest::run_all_tests();
+    return 0;
+}
+```
