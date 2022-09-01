@@ -7,6 +7,6 @@
   "dependencies": {
     "sass": "^1.52.1",
     "vitepress": "^0.22.4",
-    "vitepress-theme-sakura": "^0.4.0"
+    "vitepress-theme-sakura": "^0.4.1"
   }
 }
