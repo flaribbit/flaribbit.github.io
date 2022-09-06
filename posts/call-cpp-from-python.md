@@ -1,7 +1,7 @@
 ---
 title: 在 python 中调用 c++
 date: 2022-05-08 16:56:00
-tags: [c++, pathon, 笔记]
+tags: [c++, python, 笔记]
 ---
 
 剧透：SWIG
