@@ -109,3 +109,29 @@ class Solution:
         dfs(root)
         return res
 ```
+
+## 卡特兰数
+相关问题：
+- 左右括号匹配
+- 满二叉树数量（显然和左右括号一样）
+- 出栈方式数量
+- 凸多边形划分
+- 方格中不穿过对角线的单调路线（同出栈方式数量，可以转化为二叉树）
+
+通项公式
+
+$$H_{n}=C_{2 n}^{n} - C_{2 n}^{n + 1} = \frac{C_{2 n}^{n}}{n+1} (n \geq 2, n \in \mathbf{N}_{+} )$$
+
+递推公式
+
+$$\begin{aligned} H_{n+1}&=\frac{H_{n}(4 n+2)}{n+2} \\ H_{n}&=\left\{\begin{array}{ll} \sum_{i=1}^{n} H_{i-1} H_{n-i} & n \geq 2, n \in \mathbf{N}_{+} \\ 1 & n=0,1 \end{array} \right. \end{aligned}$$
+
+下面代码是第一个递推公式
+
+```py
+def ktl(x):
+    r = 1
+    for n in range(x):
+        r = r*(4*n+2)//(n+2)
+    return r
+```
