@@ -26,6 +26,21 @@ class Solution:
 
 ## 二分查找
 [704. 二分查找](https://leetcode.cn/problems/binary-search/)
+```py
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums)-1  # 初始化左右边界
+        while left <= right:
+            mid = (left+right)//2  # 计算中心的下标 注意这里是整数除法
+            if nums[mid] < target:
+                left = mid+1
+            elif nums[mid] > target:
+                right = mid-1
+            else:
+                return mid
+        return -1
+```
+
 ```cpp
 class Solution {
    public:
