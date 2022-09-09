@@ -64,6 +64,74 @@ class Solution:
         return l
 ```
 
+## BFS
+[1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix/)
+
+给你一个 n x n 的二进制矩阵 grid 中，返回矩阵中最短 畅通路径 的长度。如果不存在这样的路径，返回 -1 。
+
+```py
+class Solution:
+    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
+        dirs = [[0, 1], [0, -1], [1, 0], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]]
+        if grid[0][0] != 0:
+            return -1
+        m = len(grid)
+        n = len(grid[0])
+        if m == 1:
+            return 1
+        visited = [[False]*n for i in range(m)]
+        q = deque()
+        q.append((0, 0))
+        visited[0][0] = True
+        step = 1
+        while q:
+            for _ in range(len(q)):  # 一次走完所有step步的
+                si, sj = q.popleft()  # 回档的位置
+                for (di, dj) in dirs:  # 尝试所有方向
+                    i, j = si+di, sj+dj  # 新的位置
+                    if 0 <= i < m and 0 <= j < n and grid[i][j] == 0 and not visited[i][j]:  # 判断新位置合法
+                        if i == m-1 and j == n-1:  # 终点
+                            return step+1
+                        q.append((i, j))  # 存档
+                        visited[i][j] = True
+            step += 1
+        return -1
+```
+
+## DFS
+[695. 岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)
+
+给你一个大小为 m x n 的二进制矩阵 grid 。
+
+岛屿 是由一些相邻的 1 (代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在 水平或者竖直的四个方向上 相邻。你可以假设 grid 的四个边缘都被 0（代表水）包围着。
+
+岛屿的面积是岛上值为 1 的单元格的数目。
+
+计算并返回 grid 中最大的岛屿面积。如果没有岛屿，则返回面积为 0 。
+
+```py
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+        m = len(grid)
+        n = len(grid[0])
+
+        def dfs(i, j):
+            if i < 0 or i >= m or j < 0 or j >= n or grid[i][j] == 0:
+                return 0
+            grid[i][j] = 0  # 给他扬了，就不用标记访问过了
+            area = 1
+            for (di, dj) in dirs:  # 递归其他方向
+                area += dfs(i+di, j+dj)
+            return area
+
+        maxArea = 0
+        for i in range(m):
+            for j in range(n):
+                maxArea = max(maxArea, dfs(i, j))
+        return maxArea
+```
+
 ## 最长不含重复字符的子字符串
 [剑指 Offer 48. 最长不含重复字符的子字符串](https://leetcode.cn/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/)
 ```py
