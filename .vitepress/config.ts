@@ -25,9 +25,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     name: 'flaribbit',
     cover: 'https://tva3.sinaimg.cn/large/0072Vf1pgy1foxk6pmjkjj31kw0w0b0v.jpg',
     social: [
-      { icon: 'fa-github', url: 'github.com' },
-      { icon: 'fa-twitter', url: 'twitter.com' },
-      { icon: 'fa-weibo', url: 'weibo.com' },
+      { icon: 'fa-github', url: 'https://github.com/flaribbit' },
     ],
     waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
   }
