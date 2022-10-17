@@ -104,5 +104,16 @@ vcpkg install jsoncpp
 
 注：官方文档里写的使用方法是命令行添加 `-DCMAKE_TOOLCHAIN_FILE=xxxx`，这里已经设置了环境变量，即可直接执行 `cmake -B`，不必添加那一长串。
 
+## rust 环境
+```powershell
+scoop install rustup-msvc
+```
+
+他会自动设置相关环境变量到 scoop 目录，然后安装 `stable-x86_64-pc-windows-msvc`。等一两分钟安装完成后就可以使用 `rust`、`cargo`、`rustup` 等命令了。
+
+如果需要其他工具链，根据正常流程，使用 `rustup` 添加即可。
+
+注意：不要使用 scoop 里面的 `rust` 包，这个没有源码，会导致 rust-analyzer 爆炸。
+
 ## TODO
 TODO
