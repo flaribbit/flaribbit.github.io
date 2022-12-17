@@ -81,7 +81,26 @@ Invoke-Expression (&starship init powershell)
 效果如图：
 ![](images/20221005194508.png)
 
-## c++ 包管理器
+## C++ 开发环境 vscode + clangd
+在 windows 上，cmake默认生成Visual Studio项目，而这个生成器不能提供clangd需要的`compile_commands.json`文件，因此我们需要换一个更好的生成器，比如`ninja`，首先安装`clangd`和`ninja`：
+
+```powershell
+scoop install clangd ninja
+```
+
+vscode安装cmake插件。
+
+![](images/20221217125622.png)
+
+然后打开vscode的设置，搜索`cmake.generator`，填入`Ninja`，注意首字母大写。
+
+![](images/20221217125713.png)
+
+然后`ctrl+shift+p`打开命令面板执行`CMake: Configure`就可以了。如果已经configure过的话可能需要删除`build`目录再重新执行configure。
+
+注：看起来和网络上的教程不太一样是吧，因为网络上的教程全部过时。现在已经不需要添加`CMAKE_EXPORT_COMPILE_COMMANDS`选项，因为vscode的cmake插件自带了。也不需要给clangd设置参数，因为clangd会自动在当前目录和build子目录中查找`compile_commands.json`文件。
+
+## C++ 包管理器 vcpkg
 安装 vcpkg，先进入安装位置，然后执行
 ```powershell
 git clone https://github.com/Microsoft/vcpkg
@@ -112,6 +131,12 @@ scoop install rustup-msvc
 他会自动设置相关环境变量到 scoop 目录，然后安装 `stable-x86_64-pc-windows-msvc`。等一两分钟安装完成后就可以使用 `rust`、`cargo`、`rustup` 等命令了。
 
 如果需要其他工具链，根据正常流程，使用 `rustup` 添加即可。
+
+后续更新 rust 直接执行
+
+```bash
+rustup update
+```
 
 注意：不要使用 scoop 里面的 `rust` 包，这个没有源码，会导致 rust-analyzer 爆炸。
 
