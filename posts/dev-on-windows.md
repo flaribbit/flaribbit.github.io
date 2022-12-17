@@ -82,23 +82,23 @@ Invoke-Expression (&starship init powershell)
 ![](images/20221005194508.png)
 
 ## C++ 开发环境 vscode + clangd
-在 windows 上，cmake默认生成Visual Studio项目，而这个生成器不能提供clangd需要的`compile_commands.json`文件，因此我们需要换一个更好的生成器，比如`ninja`，首先安装`clangd`和`ninja`：
+在 windows 上，cmake 默认生成 Visual Studio 项目，而这个生成器不能提供 clangd 需要的 `compile_commands.json` 文件，因此我们需要换一个更好的生成器，比如 `ninja`，首先安装 `clangd` 和 `ninja`：
 
 ```powershell
 scoop install clangd ninja
 ```
 
-vscode安装cmake插件。
+vscode 安装 cmake 插件。
 
 ![](images/20221217125622.png)
 
-然后打开vscode的设置，搜索`cmake.generator`，填入`Ninja`，注意首字母大写。
+然后打开 vscode 的设置，搜索 `cmake.generator`，填入 `Ninja`，注意首字母大写。
 
 ![](images/20221217125713.png)
 
-然后`ctrl+shift+p`打开命令面板执行`CMake: Configure`就可以了。如果已经configure过的话可能需要删除`build`目录再重新执行configure。
+然后 `ctrl+shift+p` 打开命令面板执行 `CMake: Configure` 就可以了。如果已经 configure 过的话可能需要删除 `build` 目录再重新执行 configure。
 
-注：看起来和网络上的教程不太一样是吧，因为网络上的教程全部过时。现在已经不需要添加`CMAKE_EXPORT_COMPILE_COMMANDS`选项，因为vscode的cmake插件自带了。也不需要给clangd设置参数，因为clangd会自动在当前目录和build子目录中查找`compile_commands.json`文件。
+注：看起来和网络上的教程不太一样是吧，因为网络上的教程全部过时。现在已经不需要添加 `CMAKE_EXPORT_COMPILE_COMMANDS` 选项，因为 vscode 的 cmake 插件自带了。也不需要给 clangd 设置参数，因为 clangd 会自动在当前目录和 build 子目录中查找 `compile_commands.json` 文件。
 
 ## C++ 包管理器 vcpkg
 安装 vcpkg，先进入安装位置，然后执行
