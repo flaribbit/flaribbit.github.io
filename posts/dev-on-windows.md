@@ -58,6 +58,12 @@ scoop cleanup *
 scoop install starship gsudo
 ```
 
+安装新版本 PSReadLine，这两条命令需要管理员权限：
+```powershell
+sudo Install-Module PSReadLine -Force
+sudo Update-Module PSReadLine
+```
+
 创建配置文件，执行
 ```powershell
 if (!(Test-Path -Path $PROFILE)) {
