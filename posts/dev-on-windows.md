@@ -53,7 +53,7 @@ scoop cleanup *
 ```
 
 ## 终端配置与美化
-安装 starship 和 gsudo
+安装 starship 和 gsudo。前者可以提供更美观的当前目录显示、git 状态提示、项目环境和版本提示；后者提供 `sudo` 命令，需要以管理员身份运行时，不必再以管理员身份开新的终端，直接像 linux 一样使用 `sudo xxx` 即可。
 ```powershell
 scoop install starship gsudo
 ```
@@ -78,7 +78,10 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+RightArrow" -Function ForwardWord
 Invoke-Expression (&starship init powershell)
 ```
 
+解释：第 1 行开启基于历史的自动补全；第 2 行开启菜单样式的命令和参数补全，例如输入 `ff` 按 Tab 可以补全得到 `ffmpeg`，输入 `cd` 空格 Tab，可以使用方向键选择目录；第 3 行补充自动补全的功能，输入命令时按 右方向键 补全整条命令，按 Ctrl+右方向键 补全一个参数；第 4 行开启 starship 插件。此外，按 F2 可以在行内补全和历史命令列表两种模式之间切换。
+
 效果如图：
+
 ![](images/20221005194508.png)
 
 ## C++ 开发环境 vscode + clangd
